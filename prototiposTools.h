@@ -13,4 +13,6 @@ void clear();
 void purge();
 void wait(int segundos);
 
+int esNumero(const char* str);
+
 #endif

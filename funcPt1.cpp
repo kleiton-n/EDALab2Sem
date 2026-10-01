@@ -2,25 +2,40 @@
 
 //1
 TipoRetorno InsertarLinea(){
-//retorna OK o NO_IMPLEMENTADA
+	InsertarLinea();
+	return OK;
 }
 
 //2
 TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
-//retorna OK, ERROR, o NO_IMPLEMENTADA
+	return NO_IMPLEMENTADA;
 }
 
 //3
 TipoRetorno BorrarLinea(Posicion posicionLinea){
-//retorna OK, ERROR, o NO_IMPLEMENTADA
+	return NO_IMPLEMENTADA;
 }
 
 //4
 TipoRetorno BorrarTodo(){
-//Retorna OK o NO_IMPLEMENTADA
+	return NO_IMPLEMENTADA;
 }
 
 //6
 TipoRetorno ImprimirTexto(){
-//Retorna OK o NO_IMPLEMENTADA
+	return NO_IMPLEMENTADA;
+}
+	
+void muestroRetorno(int retorno){
+	switch (retorno){
+	case 0:
+		cout << "OK"<<endl;
+		break;
+	case 1:
+		cout << "ERROR"<<endl;
+		break;
+	case 2:
+		cout << "NO IMPLEMENTADA" << endl;
+		break;
+	}
 }
