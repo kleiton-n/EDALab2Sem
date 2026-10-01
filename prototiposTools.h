@@ -7,7 +7,8 @@ bool confirma();
 
 int ingOpcion(int max);
 
-char minuscula(char c);
+//char minuscula(char c);
+Cadena minusculas(Cadena cad);
 
 void clear();
 void purge();

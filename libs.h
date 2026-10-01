@@ -17,11 +17,11 @@
 //Arriba de esta linea ingresar otras librerias
 //-----------------------------------------------------------
 using namespace std;
+#include "definiciones.h"
 #include "prototiposTools.h"
 //-----------------------------------------------------------
 //Abajo de esta linea ingresar includes del proyecto
 
-#include "definiciones.h"
 #include "prototiposF.h"
 #include "prototiposR.h"
 #include "Parser.h"

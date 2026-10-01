@@ -2,9 +2,10 @@
 #define DEFINICIONES_H
 
 #define MAX_CANT_PALABRAS_X_LINEA 5
+#define DELIMITADORES "(, );"
 
 enum _retorno{
-	OK, ERRORR, NO_IMPLEMENTADA
+	OK, ERRORES, NO_IMPLEMENTADA
 };
 typedef enum _retorno TipoRetorno;
 
@@ -21,9 +22,9 @@ typedef struct nodo *lista;
 typedef unsigned int Posicion;
 
 typedef struct param {
-	Posicion pos1;
-	Posicion pos2;
-	Cadena texto;
+	Cadena param1 = NULL;
+	Cadena param2 = NULL;
+	Cadena param3 = NULL;
 } Parametros;
 
 typedef TipoRetorno (*ComandoFunc) (Parametros params);
