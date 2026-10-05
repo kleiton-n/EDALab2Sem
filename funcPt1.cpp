@@ -2,8 +2,8 @@
 
 //1
 TipoRetorno InsertarLinea(){
-	InsertarLinea();
-	return OK;
+	Insertar_Linea();
+	return NO_IMPLEMENTADA;
 }
 
 //2

@@ -4,7 +4,7 @@ TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
 
-command commands[1] = { // posibilidad de convertir en lista para obtener el tamanio
+command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0}
 };
 
@@ -17,11 +17,8 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	
 	// Buscamos el comando en la tabla
 	int indexComando = -1;
-//	cout << CANT_COMANDOS;
-	getchar();
-	getchar();
 	for(int i = 0; i < CANT_COMANDOS; i++){
-		if (strcmp(minusculas(separador), minusculas(commands[i].nombre)) == 0) {
+		if (strcmp(minusculas(separador), minusculas(commands[i].nombre)) == 0) { // cmp cambiar por comparador unario de caracters para no genearar leack de memoria
 			indexComando = i;
 			break;
 		}
@@ -34,7 +31,6 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	
 	Cadena params[3] = {NULL, NULL, NULL};
 	int cantParamsLeidos = 0;
-	
 	separador = strtok(NULL, DELIMITADORES);
 	while(separador != NULL && cantParamsLeidos < 3){
 		params[cantParamsLeidos] = separador;
@@ -51,6 +47,5 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	p.param1 = params[1];
 	p.param2 = params[2];
 	p.param3 = params[3];
-	
 	return commands[indexComando].funcion(p);
 }

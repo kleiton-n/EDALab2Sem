@@ -1,5 +1,5 @@
 #include "libs.h"
 
-void InsertarLineaa(){
-	cout << "hola";
+void Insertar_Linea(){
+	// logica de inserto linea
 }

@@ -45,13 +45,17 @@ int ingOpcion(int max){
 	return opcion;
 }
 	
-Cadena minusculas(Cadena cad){ // problema de ejecucion
-//	int len = strlen(cad);
-//	Cadena ncad;
-//	for(int i = 0; i < len; i++){
-//		ncad[i] = minuscula(cad[i]);
-//	}
-	return cad;
+Cadena minusculas(Cadena cad){  // tiene leak de memoria
+	if (cad == NULL){
+		return NULL;
+	}
+	int len = strlen(cad);
+	Cadena ncad = new char[len+1];
+	for(int i = 0; i < len; i++){
+		ncad[i] = minuscula(cad[i]);
+	}
+	ncad[len] = '\0';
+	return ncad;
 }
 	
 void clear(){

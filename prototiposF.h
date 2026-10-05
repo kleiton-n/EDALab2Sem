@@ -1,6 +1,6 @@
 #ifndef PROTOTIPOSF_H
 #define PROTOTIPOSF_H
 
-void InsertarLineaa();
+void Insertar_Linea();
 
 #endif
