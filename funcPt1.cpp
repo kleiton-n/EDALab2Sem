@@ -1,9 +1,22 @@
 #include "libs.h"
 
+cabezal l;
+
 //1
 TipoRetorno InsertarLinea(){
-	Insertar_Linea();
-	return NO_IMPLEMENTADA;
+//	Insertar_Linea();
+	lista_ln ln = new nodoln;
+	ln->valor = NULL;
+	ln->sig = NULL;
+	ln->ant = l.ultimo;
+	if (esTextoVacio(l)){
+		l.primero = ln;
+		l.ultimo = ln;
+	}else{
+		l.ultimo->sig = ln;
+		l.ultimo = ln;
+	}
+	return OK;
 }
 
 //2
@@ -23,7 +36,20 @@ TipoRetorno BorrarTodo(){
 
 //6
 TipoRetorno ImprimirTexto(){
-	return NO_IMPLEMENTADA;
+	if(esLineaVacia(l)){
+		cout << "Texto vacio";
+	}else{
+		lista_ln aux = l.primero;
+		int i = 1;
+		while(!esLineaVacia(aux)){
+			cout << i << ": ";
+			mostrarTexto();
+			cout << endl;
+			aux = aux.sig;
+			i++;
+		}
+	}
+	return OK;
 }
 	
 void muestroRetorno(int retorno){

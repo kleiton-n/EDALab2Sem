@@ -3,9 +3,14 @@
 TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
+	
+TipoRetorno ImprimirTextoParser(Parametros param){
+	return ImprimirTexto();
+}
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
-	{(Cadena)"InsertarLinea", InsertarLineaParser, 0}
+	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
+	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0}
 };
 
 #define CANT_COMANDOS 1

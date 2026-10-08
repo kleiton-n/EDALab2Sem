@@ -11,14 +11,6 @@ typedef enum _retorno TipoRetorno;
 
 typedef char *Cadena;
 
-struct nodo{
-	nodo *ant;
-	Cadena valor = new char[10]; //char valor[10];
-	nodo *sig;
-};
-
-typedef struct nodo *lista;
-
 typedef unsigned int Posicion;
 
 // COMMANDS
@@ -36,13 +28,22 @@ typedef struct _command{
 	int cantParametros;
 }command;
 
-// COMMAND
+// COMMANDS
 
-struct _cabezal {
-	lista primero;
-	lista ultimo;
-};
+typedef struct nodop{
+	Cadena valor = new char[15];
+	nodop *sig;
+}*lista_p;
 
-typedef struct _cabezal cabezal;
+typedef struct nodoln{
+	nodoln *ant;
+	lista_p valor;
+	nodoln *sig;
+}*lista_ln;
+
+typedef struct _cabezal {
+	lista_ln primero = NULL;
+	lista_ln ultimo = NULL;
+}cabezal;
 
 #endif
