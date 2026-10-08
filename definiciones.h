@@ -21,6 +21,7 @@ typedef struct nodo *lista;
 
 typedef unsigned int Posicion;
 
+// COMMANDS
 typedef struct param {
 	Cadena param1 = NULL;
 	Cadena param2 = NULL;
@@ -34,6 +35,8 @@ typedef struct _command{
 	ComandoFunc funcion;
 	int cantParametros;
 }command;
+
+// COMMAND
 
 struct _cabezal {
 	lista primero;
