@@ -1,8 +1,24 @@
 #include "libs.h"
 
+int esNumero(const char* str) {
+	if (str == NULL || *str == '\0') return 0;
+	for (int i = 0; str[i] != '\0'; i++) {
+		if (str[i] < '0' || str[i] > '9') return 0;
+	}
+	return 1;
+}
+
 void pausa(){
 	cout << endl << endl << "Presione [ENTER] para continuar";
 	getchar();
+}
+	
+char minuscula(char c){
+	// si el caracter está en mayuscula lo pasa a minusculas utilizando los valores ASCII
+	if(c >= 65 && c <= 90){
+		return c+32;
+	}
+	return c;
 }
 
 bool confirma(){
@@ -28,13 +44,18 @@ int ingOpcion(int max){
 	} while(opcion < 1 || opcion > max);
 	return opcion;
 }
-
-char minuscula(char c){
-	// si el caracter está en mayuscula lo pasa a minusculas utilizando los valores ASCII
-	if(c >= 65 && c <= 90){
-		return c+32;
+	
+Cadena minusculas(Cadena cad){  // tiene leak de memoria
+	if (cad == NULL){
+		return NULL;
 	}
-	return c;
+	int len = strlen(cad);
+	Cadena ncad = new char[len+1];
+	for(int i = 0; i < len; i++){
+		ncad[i] = minuscula(cad[i]);
+	}
+	ncad[len] = '\0';
+	return ncad;
 }
 	
 void clear(){
