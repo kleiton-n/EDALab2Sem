@@ -27,11 +27,11 @@ cursor=47:56
 open=true
 [source]
 path=funcPt1.cpp
-cursor=37:25
+cursor=38:20
 open=true
 [source]
 path=funciones.cpp
-cursor=24:8
+cursor=25:4
 open=true
 [source]
 path=Parser.cpp

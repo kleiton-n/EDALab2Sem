@@ -4,18 +4,29 @@ cabezal l;
 
 //1
 TipoRetorno InsertarLinea(){
-//	Insertar_Linea();
-	lista_ln ln = new nodoln;
-	ln->valor = NULL;
-	ln->sig = NULL;
-	ln->ant = l.ultimo;
-	if (esTextoVacio(l)){
-		l.primero = ln;
-		l.ultimo = ln;
-	}else{
-		l.ultimo->sig = ln;
-		l.ultimo = ln;
+	Insertar_Linea(l);
+	return OK;
+}
+
+//8
+TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar){
+	if(esTextoVacio(l)){
+		cout << "actualmente no hay lineas en el documento" << endl;
+		return ERRORES;
+	}else if(!existeLinea(l.primero, posicionLinea)){
+		cout << "Linea " << posicionLinea << " no existe" << endl;
+		return ERRORES;
+	}else if(posicionPalabra > MAX_CANT_PALABRAS_X_LINEA){
+		cout << "La posicion de la palabra supera la cantidad maxima de palabras por linea" << endl;
+		return ERRORES;
+	}else if(posicionPalabra < 1){
+		cout << "la posicion de la palabra debe de ser un numero positivo" << endl;
+		return ERRORES;
+	}else if(posicionPalabra > (cantPalabras(obtenerPalabras(l.primero, posicionLinea))+1)){
+		cout << "la posicon de la palabra debe de ser una posicion validad dentro de la linea" << endl;
+		return ERRORES;
 	}
+	Insertar_Palabra(posicionLinea, posicionPalabra, palabraAIngresar, l);
 	return OK;
 }
 
@@ -36,16 +47,16 @@ TipoRetorno BorrarTodo(){
 
 //6
 TipoRetorno ImprimirTexto(){
-	if(esLineaVacia(l)){
-		cout << "Texto vacio";
+	if(esTextoVacio(l)){
+		cout << "Texto vacio" << endl;
 	}else{
 		lista_ln aux = l.primero;
 		int i = 1;
 		while(!esLineaVacia(aux)){
 			cout << i << ": ";
-			mostrarTexto();
+			mostrarTexto(aux->valor);
 			cout << endl;
-			aux = aux.sig;
+			aux = aux->sig;
 			i++;
 		}
 	}

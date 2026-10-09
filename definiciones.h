@@ -1,7 +1,7 @@
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
-#define MAX_CANT_PALABRAS_X_LINEA 5
+#define MAX_CANT_PALABRAS_X_LINEA 3
 #define DELIMITADORES "(, );"
 
 enum _retorno{

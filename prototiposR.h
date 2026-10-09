@@ -5,6 +5,8 @@ TipoRetorno InsertarLinea();
 
 TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea);
 
+TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar);
+
 TipoRetorno BorrarLinea(Posicion posicionLinea);
 
 TipoRetorno BorrarTodo();

@@ -8,7 +8,7 @@
 
 int main (int argc, char *argv[]) {
 	char texto[MAX_LINEA_ENTRADA];
-	
+	InsertarLinea(); // debug
 	while (true) {
 		cout << "> ";
 		
