@@ -34,7 +34,7 @@ TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por p
 		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
 		return ERRORES;
 	}
-	param.param3 = strtok(param.param3, "\"");
+	param.param3 = strtok(param.param3, "\""); // capas que es necesario usar separador para espacio, preguntar a gualbi "palabra 1" que deberia de pasar
 	return InsertarPalabra(atoi(param.param1), atoi(param.param2), param.param3);
 }
 

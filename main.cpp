@@ -3,7 +3,6 @@
 #define MAX_LINEA_ENTRADA 256
 
 // TODO
-// chequear funciones con parametros de 1,2 y 3
 // ver lo del memory leak
 
 int main (int argc, char *argv[]) {
