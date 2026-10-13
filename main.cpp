@@ -7,7 +7,13 @@
 
 int main (int argc, char *argv[]) {
 	char texto[MAX_LINEA_ENTRADA];
-	InsertarLinea(); // debug
+	// debug
+	InsertarLinea();
+	InsertarLinea();
+	InsertarPalabra(1,1,(Cadena)"palabra1");
+	InsertarPalabra(2,1,(Cadena)"palabra2");
+	ImprimirTexto();
+	// debug
 	while (true) {
 		cout << "> ";
 		

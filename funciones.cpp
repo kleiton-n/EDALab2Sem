@@ -8,6 +8,14 @@ bool esTextoVacio(cabezal l){
 bool esLineaVacia(lista_ln ln){
 	return ln == NULL;
 }
+int cantLineas(lista_ln primero){
+	int cant = 0;
+	while(!esLineaVacia(primero)){
+		primero = primero->sig;
+		cant++;
+	}
+	return cant;
+}
 	
 bool existeLinea(lista_ln ln, Posicion posicionLinea){
 	while(posicionLinea > 1 && !esLineaVacia(ln)){
@@ -38,6 +46,10 @@ void Insertar_Linea(cabezal &l){
 		l.ultimo->sig = ln;
 		l.ultimo = ln;
 	}
+}
+
+void Insertar_LineaEnPosicion(Posicion posicionLinea, cabezal &l){
+	
 }
 
 // LISTA SIMPLE

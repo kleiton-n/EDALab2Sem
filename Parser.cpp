@@ -4,12 +4,20 @@ bool esTexto(Cadena c){
 	return c[0] == '"';
 }
 	
-bool esNumero(Cadena c) {
+bool esNumero(Cadena c) { // pasarlo a tools
 	if (c == NULL || *c == '\0') return false;
 	for (int i = 0; c[i] != '\0'; i++) {
 		if (c[i] < '0' || c[i] > '9') return false;
 	}
 	return true;
+}
+
+TipoRetorno InsertarLineaEnPosicioParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para InsertarLineaEnPosicion debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}
+	return InsertarLineaEnPosicion(atoi(param.param1));
 }
 
 TipoRetorno InsertarLineaParser(Parametros param){
@@ -34,17 +42,18 @@ TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por p
 		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
 		return ERRORES;
 	}
-	param.param3 = strtok(param.param3, "\""); // capas que es necesario usar separador para espacio, preguntar a gualbi "palabra 1" que deberia de pasar
+	param.param3 = strtok(param.param3, "\""); // capas que es necesario usar separador para espacio, preguntar a gualbi "palabra 1" que deberia de pasar ignoro 1
 	return InsertarPalabra(atoi(param.param1), atoi(param.param2), param.param3);
 }
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
-	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3}
+	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
+	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1}
 };
 
-#define CANT_COMANDOS 3
+#define CANT_COMANDOS 4
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

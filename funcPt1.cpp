@@ -32,7 +32,25 @@ TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Ca
 
 //2
 TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
-	return NO_IMPLEMENTADA;
+	if (posicionLinea < 1){
+		cout << "la posicion de la linea debe de ser un numero positivo" << endl;
+		return ERRORES;
+	}else if (posicionLinea > (cantLineas(l.primero) + 1)){
+		cout << "la poscion indicada supera la cantidad de linesas actuales" << endl;
+		return ERRORES;
+	}
+	if (posicionLinea > cantLineas(l.primero)){
+		Insertar_Linea(l);
+	}else{
+		lista_ln ln = obtenerLinea(l.primero, posicionLinea);
+		lista_ln aux = new nodoln;
+		aux->valor = NULL;
+		aux->ant = ln->ant;
+		aux->sig = ln;
+		ln->ant->sig = aux;
+		ln->ant = aux;
+	}
+	return OK;
 }
 
 //3
