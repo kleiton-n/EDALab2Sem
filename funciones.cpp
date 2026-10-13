@@ -133,3 +133,24 @@ void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena p
 		Insertar_Palabra(posicionLinea+1, 1, palabraSig, l);
 	}
 }
+void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l){
+	lista_p p = obtenerPalabras(l.primero, posicionLinea);
+	if(posicionPalabra == 1) {
+		lista_p aux = new nodop;
+		aux = p->sig;
+		lista_ln ln = obtenerLinea(l.primero, posicionLinea);
+		delete p;
+		ln->valor = aux;
+		
+	}else{
+		lista_p aux = new nodop;
+		while(posicionPalabra > 1){
+			aux = p;
+			p = p->sig;
+			posicionPalabra --;
+		}
+		aux->sig = p->sig;
+		delete p;
+	}
+	
+}

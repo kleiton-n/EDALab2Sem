@@ -11,5 +11,6 @@ lista_p obtenerPalabras(lista_ln ln,Posicion posicionLinea);
 void mostrarTexto(lista_p p);
 int cantPalabras(lista_p p);
 void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar, cabezal &l);
+void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l);
 
 #endif

@@ -81,3 +81,7 @@ void muestroRetorno(int retorno){
 		break;
 	}
 }
+TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra){
+	Borrar_Palabra(posicionLinea, posicionPalabra, l);
+	return OK;
+}
