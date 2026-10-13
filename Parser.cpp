@@ -12,6 +12,10 @@ bool esNumero(Cadena c) {
 	return true;
 }
 
+TipoRetorno Clear_Parser(Parametros param){
+	return ClearP();
+}
+
 TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
@@ -41,10 +45,11 @@ TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por p
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
-	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3}
+	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
+	{(Cadena)"Clear", Clear_Parser, 0},
 };
 
-#define CANT_COMANDOS 3
+#define CANT_COMANDOS 4
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

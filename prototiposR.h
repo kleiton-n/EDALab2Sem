@@ -12,7 +12,9 @@ TipoRetorno BorrarLinea(Posicion posicionLinea);
 TipoRetorno BorrarTodo();
 	
 TipoRetorno ImprimirTexto();
-	
+
+TipoRetorno ClearP();
+
 void muestroRetorno(int retorno);
 
 

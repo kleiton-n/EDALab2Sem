@@ -62,6 +62,11 @@ TipoRetorno ImprimirTexto(){
 	}
 	return OK;
 }
+
+TipoRetorno ClearP(){
+	clear();
+	return OK;
+}
 	
 void muestroRetorno(int retorno){
 	switch (retorno){
