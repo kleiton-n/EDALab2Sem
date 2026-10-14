@@ -45,7 +45,7 @@ int ingOpcion(int max){
 	return opcion;
 }
 	
-bool cadcmp(Cadena c1, Cadena c2){// buscar como encontrar el tamanio de una cadena o string
+bool cadcmp(Cadena c1, Cadena c2){
 	if (strlen(c1) != strlen(c2)){
 		return false;
 	}
@@ -57,7 +57,7 @@ bool cadcmp(Cadena c1, Cadena c2){// buscar como encontrar el tamanio de una cad
 	}
 	return true;
 }
-	
+
 void clear(){
 	#ifdef _WIN32
 		system("cls");
