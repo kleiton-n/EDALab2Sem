@@ -9,8 +9,6 @@ lista_ln obtenerLinea(lista_ln ln, Posicion posicionLinea);
 bool esPalabraVacia(cabezal l);
 bool existeLinea(lista_ln ln, Posicion posicionLinea);
 lista_p obtenerPalabras(lista_ln ln,Posicion posicionLinea);
-
-
 void Borrar_Linea(cabezal &l, Posicion posicionLinea);
 void mostrarTexto(lista_p p);
 int cantPalabras(lista_p p);
