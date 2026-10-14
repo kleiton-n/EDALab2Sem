@@ -80,6 +80,11 @@ TipoRetorno ImprimirTexto(){
 	}
 	return OK;
 }
+
+TipoRetorno ClearP(){
+	clear();
+	return OK;
+}
 	
 void muestroRetorno(int retorno){
 	switch (retorno){
@@ -93,4 +98,8 @@ void muestroRetorno(int retorno){
 		cout << "NO IMPLEMENTADA" << endl;
 		break;
 	}
+}
+TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra){
+	Borrar_Palabra(posicionLinea, posicionPalabra, l);
+	return OK;
 }
