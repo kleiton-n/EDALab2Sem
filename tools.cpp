@@ -46,13 +46,12 @@ int ingOpcion(int max){
 }
 	
 bool cadcmp(Cadena c1, Cadena c2){// buscar como encontrar el tamanio de una cadena o string
-	if (sizeof(c1) != sizeof(c2)){
-		cout << "texto corto" << endl;
+	if (strlen(c1) != strlen(c2)){
 		return false;
 	}
 	
-	for (int i = 0; i < sizeof(c1); i++){
-		if(c1[i] != c2[i]){
+	for (int i = 0; i < strlen(c1); i++){
+		if(minuscula(c1[i]) != minuscula(c2[i])){
 			return false;
 		}	
 	}

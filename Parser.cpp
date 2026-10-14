@@ -57,7 +57,7 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
 	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
-	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1}
+	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1},
 	{(Cadena)"Clear", Clear_Parser, 0},
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
 };
