@@ -11,7 +11,7 @@ TipoRetorno InsertarLinea(){
 //8
 TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar){
 	if(esTextoVacio(l)){
-		cout << "actualmente no hay lineas en el documento" << endl;
+		cout << "Actualmente no existen lineas en el documento" << endl;
 		return ERRORES;
 	}else if(!existeLinea(l.primero, posicionLinea)){
 		cout << "Linea " << posicionLinea << " no existe" << endl;
@@ -22,7 +22,7 @@ TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Ca
 	}else if(posicionPalabra < 1){
 		cout << "la posicion de la palabra debe de ser un numero positivo" << endl;
 		return ERRORES;
-	}else if(posicionPalabra > (cantPalabras(obtenerPalabras(l.primero, posicionLinea))+1)){
+	}else if(posicionPalabra > (unsigned)(cantPalabras(obtenerPalabras(l.primero, posicionLinea))+1)){
 		cout << "la posicon de la palabra debe de ser una posicion validad dentro de la linea" << endl;
 		return ERRORES;
 	}
@@ -55,7 +55,15 @@ TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
 
 //3
 TipoRetorno BorrarLinea(Posicion posicionLinea){
-	return NO_IMPLEMENTADA;
+	if(esTextoVacio(l)){
+		cout << "Actualmente no existen lineas en el documento" << endl;
+		return ERRORES;
+	}else if(!existeLinea(l.primero, posicionLinea)){
+		cout << "Linea " << posicionLinea << " no existe" << endl;
+		return ERRORES;
+	}
+	Borrar_Linea(l,posicionLinea);
+	return OK;
 }
 
 //4
@@ -99,6 +107,7 @@ void muestroRetorno(int retorno){
 		break;
 	}
 }
+
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra){
 	Borrar_Palabra(posicionLinea, posicionPalabra, l);
 	return OK;

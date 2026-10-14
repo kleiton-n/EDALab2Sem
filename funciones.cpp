@@ -145,6 +145,7 @@ void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena p
 		Insertar_Palabra(posicionLinea+1, 1, palabraSig, l);
 	}
 }
+
 void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l){
 	lista_p p = obtenerPalabras(l.primero, posicionLinea);
 	if(posicionPalabra == 1) {
@@ -164,5 +165,21 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 		aux->sig = p->sig;
 		delete p;
 	}
-	
+}
+
+void Borrar_Linea(cabezal &l, Posicion posicionLinea){
+	lista_ln ln = obtenerLinea(l.primero, posicionLinea);
+	for(int i=cantPalabras(ln->valor); i>0; i--){
+		Borrar_Palabra(posicionLinea,i,l);
+	}
+	if(ln->sig==NULL){
+		l.ultimo=ln->ant;
+	}
+	if(ln->ant==NULL){
+		l.primero=ln->sig;
+	}else{
+		(ln->ant)->sig = ln->sig;
+		(ln->sig)->ant = ln->ant;
+	}
+	delete ln;
 }

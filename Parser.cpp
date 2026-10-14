@@ -53,6 +53,10 @@ TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por p
 	return InsertarPalabra(atoi(param.param1), atoi(param.param2), param.param3);
 }
 
+TipoRetorno BorrarLineaParser(Parametros param){
+	return BorrarLinea(atoi(param.param1));
+}
+
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
@@ -60,6 +64,7 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1},
 	{(Cadena)"Clear", Clear_Parser, 0},
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
+	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
 };
 
 #define CANT_COMANDOS 6
