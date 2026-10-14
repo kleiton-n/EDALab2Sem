@@ -35,11 +35,11 @@ TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
 	if (posicionLinea < 1){
 		cout << "la posicion de la linea debe de ser un numero positivo" << endl;
 		return ERRORES;
-	}else if (posicionLinea > (cantLineas(l.primero) + 1)){
+	}else if (posicionLinea > ((unsigned)cantLineas(l.primero) + 1)){
 		cout << "la poscion indicada supera la cantidad de linesas actuales" << endl;
 		return ERRORES;
 	}
-	if (posicionLinea > cantLineas(l.primero)){
+	if (posicionLinea > (unsigned)cantLineas(l.primero)){
 		Insertar_Linea(l);
 	}else{
 		lista_ln ln = obtenerLinea(l.primero, posicionLinea);
