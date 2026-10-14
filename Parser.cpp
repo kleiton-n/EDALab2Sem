@@ -63,7 +63,7 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	// Buscamos el comando en la tabla
 	int indexComando = -1;
 	for(int i = 0; i < CANT_COMANDOS; i++){
-		if (strcmp(minusculas(separador), minusculas(commands[i].nombre)) == 0) { // cmp cambiar por comparador unario de caracters para no genearar leack de memoria
+		if (cadcmp(separador, commands[i].nombre)) { // cmp cambiar por comparador unario de caracters para no genearar leack de memoria
 			indexComando = i;
 			break;
 		}

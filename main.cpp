@@ -30,8 +30,7 @@ int main (int argc, char *argv[]) {
 		char tmp[MAX_LINEA_ENTRADA];
 		strcpy(tmp,texto);
 		Cadena separador = strtok(tmp, "(");
-		separador = minusculas(separador); // ver el aproach para escribir directo en la varaible para evitar leack de memoria
-		if (strcmp(separador, "salir") == 0 || strcmp(separador, "exit") == 0) {
+		if (cadcmp(separador, (Cadena)"salir")|| cadcmp(separador, (Cadena)"exit")) {
 			break;
 		}
 		

@@ -45,17 +45,18 @@ int ingOpcion(int max){
 	return opcion;
 }
 	
-Cadena minusculas(Cadena cad){  // tiene leak de memoria
-	if (cad == NULL){
-		return NULL;
+bool cadcmp(Cadena c1, Cadena c2){// buscar como encontrar el tamanio de una cadena o string
+	if (sizeof(c1) != sizeof(c2)){
+		cout << "texto corto" << endl;
+		return false;
 	}
-	int len = strlen(cad);
-	Cadena ncad = new char[len+1];
-	for(int i = 0; i < len; i++){
-		ncad[i] = minuscula(cad[i]);
+	
+	for (int i = 0; i < sizeof(c1); i++){
+		if(c1[i] != c2[i]){
+			return false;
+		}	
 	}
-	ncad[len] = '\0';
-	return ncad;
+	return true;
 }
 	
 void clear(){

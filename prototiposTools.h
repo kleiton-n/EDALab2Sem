@@ -14,6 +14,8 @@ void clear();
 void purge();
 void wait(int segundos);
 
+bool cadcmp(Cadena c1, Cadena c2);
+
 int esNumero(const char* str);
 
 #endif
