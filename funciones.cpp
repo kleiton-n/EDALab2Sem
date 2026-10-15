@@ -165,21 +165,37 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 		aux->sig = p->sig;
 		delete p;
 	}
+	
 }
 
+	
 void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 	lista_ln ln = obtenerLinea(l.primero, posicionLinea);
-	for(int i=cantPalabras(ln->valor); i>0; i--){
-		Borrar_Palabra(posicionLinea,i,l);
+	
+	for(int i = cantPalabras(ln->valor); i > 0; i--){
+		Borrar_Palabra(posicionLinea, i, l);
 	}
-	if(ln->sig==NULL){
-		l.ultimo=ln->ant;
-	}
-	if(ln->ant==NULL){
-		l.primero=ln->sig;
+	
+	if(ln->ant == NULL){
+		l.primero = ln->sig;
 	}else{
-		(ln->ant)->sig = ln->sig;
-		(ln->sig)->ant = ln->ant;
+		ln->ant->sig = ln->sig;
 	}
+	
+	if(ln->sig == NULL){
+		l.ultimo = ln->ant;
+	}else{
+		ln->sig->ant = ln->ant;
+	}
+	
 	delete ln;
+}	
+
+void Borrar_Todo(cabezal &l){
+	cout << "Antes: " << cantLineas(l.primero) << endl;
+	
+	while(l.primero != NULL){
+		Borrar_Linea(l, 1);
+	}
+	cout << "Despues: " << cantLineas(l.primero) << endl;
 }

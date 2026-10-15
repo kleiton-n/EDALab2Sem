@@ -14,5 +14,6 @@ void mostrarTexto(lista_p p);
 int cantPalabras(lista_p p);
 void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar, cabezal &l);
 void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l);
+void Borrar_Todo(cabezal &l);
 
 #endif

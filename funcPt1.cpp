@@ -68,7 +68,8 @@ TipoRetorno BorrarLinea(Posicion posicionLinea){
 
 //4
 TipoRetorno BorrarTodo(){
-	return NO_IMPLEMENTADA;
+	Borrar_Todo(l);
+	return OK;
 }
 
 //6

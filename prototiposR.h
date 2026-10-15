@@ -9,7 +9,6 @@ TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Ca
 
 TipoRetorno BorrarLinea(Posicion posicionLinea);
 
-TipoRetorno BorrarTodo();
 	
 TipoRetorno ImprimirTexto();
 
@@ -17,6 +16,7 @@ TipoRetorno ClearP();
 
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra);
 
+TipoRetorno BorrarTodo();
 
 void muestroRetorno(int retorno);
 
