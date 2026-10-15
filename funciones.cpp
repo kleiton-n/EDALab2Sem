@@ -176,24 +176,24 @@ void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 		Borrar_Palabra(posicionLinea, i, l);
 	}
 	
-	if(ln->ant == NULL){
-		l.primero = ln->sig;
-	}else{
-		ln->ant->sig = ln->sig;
-	}
-	
 	if(ln->sig == NULL){
 		l.ultimo = ln->ant;
 	}else{
 		ln->sig->ant = ln->ant;
 	}
 	
+	if(ln->ant == NULL){
+		l.primero = ln->sig;
+	}else{
+		ln->ant->sig = ln->sig;
+	}
+	
 	delete ln;
+	
 }	
 
 void Borrar_Todo(cabezal &l){
 	cout << "Antes: " << cantLineas(l.primero) << endl;
-	
 	while(l.primero != NULL){
 		Borrar_Linea(l, 1);
 	}

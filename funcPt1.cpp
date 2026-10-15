@@ -1,7 +1,20 @@
 #include "libs.h"
 
 cabezal l;
-
+	
+void muestroRetorno(int retorno){
+	switch (retorno){
+	case 0:
+		cout << "OK"<<endl;
+		break;
+	case 1:
+		cout << "ERROR"<<endl;
+		break;
+	case 2:
+		cout << "NO IMPLEMENTADA" << endl;
+		break;
+	}
+}
 //1
 TipoRetorno InsertarLinea(){
 	Insertar_Linea(l);
@@ -68,6 +81,10 @@ TipoRetorno BorrarLinea(Posicion posicionLinea){
 
 //4
 TipoRetorno BorrarTodo(){
+	if(esTextoVacio(l)){
+		cout << "Actualmente no existen lineas en el documento" << endl;
+		return ERRORES;
+	}
 	Borrar_Todo(l);
 	return OK;
 }
@@ -75,7 +92,8 @@ TipoRetorno BorrarTodo(){
 //6
 TipoRetorno ImprimirTexto(){
 	if(esTextoVacio(l)){
-		cout << "Texto vacio" << endl;
+		cout << "Actualmente no existen lineas en el documento" << endl;
+		return ERRORES;
 	}else{
 		lista_ln aux = l.primero;
 		int i = 1;
@@ -90,23 +108,10 @@ TipoRetorno ImprimirTexto(){
 	return OK;
 }
 
+//opt1
 TipoRetorno ClearP(){
 	clear();
 	return OK;
-}
-	
-void muestroRetorno(int retorno){
-	switch (retorno){
-	case 0:
-		cout << "OK"<<endl;
-		break;
-	case 1:
-		cout << "ERROR"<<endl;
-		break;
-	case 2:
-		cout << "NO IMPLEMENTADA" << endl;
-		break;
-	}
 }
 
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra){
