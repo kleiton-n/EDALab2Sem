@@ -45,19 +45,19 @@ int ingOpcion(int max){
 	return opcion;
 }
 	
-Cadena minusculas(Cadena cad){  // tiene leak de memoria
-	if (cad == NULL){
-		return NULL;
+bool cadcmp(Cadena c1, Cadena c2){
+	if (strlen(c1) != strlen(c2)){
+		return false;
 	}
-	int len = strlen(cad);
-	Cadena ncad = new char[len+1];
-	for(int i = 0; i < len; i++){
-		ncad[i] = minuscula(cad[i]);
-	}
-	ncad[len] = '\0';
-	return ncad;
-}
 	
+	for (unsigned int i = 0; i < strlen(c1); i++){
+		if(minuscula(c1[i]) != minuscula(c2[i])){
+			return false;
+		}	
+	}
+	return true;
+}
+
 void clear(){
 	#ifdef _WIN32
 		system("cls");

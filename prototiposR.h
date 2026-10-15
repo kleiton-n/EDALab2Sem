@@ -5,12 +5,19 @@ TipoRetorno InsertarLinea();
 
 TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea);
 
+TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar);
+
 TipoRetorno BorrarLinea(Posicion posicionLinea);
 
-TipoRetorno BorrarTodo();
 	
 TipoRetorno ImprimirTexto();
-	
+
+TipoRetorno ClearP();
+
+TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra);
+
+TipoRetorno BorrarTodo();
+
 void muestroRetorno(int retorno);
 
 

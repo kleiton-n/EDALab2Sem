@@ -3,12 +3,20 @@
 #define MAX_LINEA_ENTRADA 256
 
 // TODO
-// chequear funciones con parametros de 1,2 y 3
 // ver lo del memory leak
 
 int main (int argc, char *argv[]) {
 	char texto[MAX_LINEA_ENTRADA];
-	
+	// debug
+	InsertarLinea();
+	InsertarLinea();
+	InsertarLinea();
+	InsertarPalabra(1,1,(Cadena)"palabra1");
+	InsertarPalabra(2,1,(Cadena)"palabra2");
+	InsertarPalabra(3,1,(Cadena)"palabra3");
+	ImprimirTexto();
+	// cout << cantLineas(l.primero) << endl;
+	// debug
 	while (true) {
 		cout << "> ";
 		
@@ -25,8 +33,7 @@ int main (int argc, char *argv[]) {
 		char tmp[MAX_LINEA_ENTRADA];
 		strcpy(tmp,texto);
 		Cadena separador = strtok(tmp, "(");
-		separador = minusculas(separador); // ver el aproach para escribir directo en la varaible para evitar leack de memoria
-		if (strcmp(separador, "salir") == 0 || strcmp(separador, "exit") == 0) {
+		if (cadcmp(separador, (Cadena)"salir")|| cadcmp(separador, (Cadena)"exit")) {
 			break;
 		}
 		

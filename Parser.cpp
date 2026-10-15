@@ -1,14 +1,79 @@
 #include "libs.h"
 
+bool esTexto(Cadena c){
+	return c[0] == '"';
+}
+	
+bool esNumero(Cadena c) { // pasarlo a tools
+	if (c == NULL || *c == '\0') return false;
+	for (int i = 0; c[i] != '\0'; i++) {
+		if (c[i] < '0' || c[i] > '9') return false;
+	}
+	return true;
+}
+
+TipoRetorno InsertarLineaEnPosicioParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para InsertarLineaEnPosicion debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}
+	return InsertarLineaEnPosicion(atoi(param.param1));
+}
+	
+TipoRetorno Clear_Parser(Parametros param){
+	return ClearP();
+}
+
 TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
+TipoRetorno BorrarPalabraParser(Parametros param){
+	return BorrarPalabra(atoi(param.param1),atoi(param.param2));
+}
+TipoRetorno BorrarTodoParser(Parametros param){
+	return BorrarTodo();
+}
+	
+	
+TipoRetorno ImprimirTextoParser(Parametros param){
+	return ImprimirTexto();
+}
+
+TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por parametros si tiene leak de memoria
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para InsertarPalabra debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}	
+	if (!esNumero(param.param2)){
+		cout << "el segundo parametro para InsertarPalabra debe de ser numerico e ingreso: " << param.param2 << endl;
+		return ERRORES;
+	}	
+	if (!esTexto(param.param3)){
+		cout << "el tercer parametro para InsertarPalabra debe de ser texto e ingreso: " << param.param3 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param3 = strtok(param.param3, "\""); // capas que es necesario usar separador para espacio, preguntar a gualbi "palabra 1" que deberia de pasar ignoro 1
+	return InsertarPalabra(atoi(param.param1), atoi(param.param2), param.param3);
+}
+
+TipoRetorno BorrarLineaParser(Parametros param){
+	return BorrarLinea(atoi(param.param1));
+}
+
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
-	{(Cadena)"InsertarLinea", InsertarLineaParser, 0}
+	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
+	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
+	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
+	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1},
+	{(Cadena)"Clear", Clear_Parser, 0},
+	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
+	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
+    {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
 };
 
-#define CANT_COMANDOS 1
+#define CANT_COMANDOS 8
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	
@@ -18,7 +83,7 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	// Buscamos el comando en la tabla
 	int indexComando = -1;
 	for(int i = 0; i < CANT_COMANDOS; i++){
-		if (strcmp(minusculas(separador), minusculas(commands[i].nombre)) == 0) { // cmp cambiar por comparador unario de caracters para no genearar leack de memoria
+		if (cadcmp(separador, commands[i].nombre)) {
 			indexComando = i;
 			break;
 		}
@@ -44,8 +109,8 @@ TipoRetorno parser(Cadena lineaEntrada) {
 	}
 	
 	Parametros p;
-	p.param1 = params[1];
-	p.param2 = params[2];
-	p.param3 = params[3];
+	p.param1 = params[0];
+	p.param2 = params[1];
+	p.param3 = params[2];
 	return commands[indexComando].funcion(p);
 }
