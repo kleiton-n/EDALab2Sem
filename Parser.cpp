@@ -30,6 +30,10 @@ TipoRetorno InsertarLineaParser(Parametros param){
 TipoRetorno BorrarPalabraParser(Parametros param){
 	return BorrarPalabra(atoi(param.param1),atoi(param.param2));
 }
+TipoRetorno BorrarTodoParser(Parametros param){
+	return BorrarTodo();
+}
+	
 	
 TipoRetorno ImprimirTextoParser(Parametros param){
 	return ImprimirTexto();
@@ -66,9 +70,10 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"Clear", Clear_Parser, 0},
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
 	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
+    {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
 };
 
-#define CANT_COMANDOS 6
+#define CANT_COMANDOS 8
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	
