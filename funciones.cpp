@@ -187,7 +187,6 @@ void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 	}else{
 		ln->ant->sig = ln->sig;
 	}
-	
 	delete ln;
 	
 }	

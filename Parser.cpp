@@ -61,6 +61,7 @@ TipoRetorno BorrarLineaParser(Parametros param){
 	return BorrarLinea(atoi(param.param1));
 }
 
+
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
