@@ -169,17 +169,21 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 
 void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 	lista_ln ln = obtenerLinea(l.primero, posicionLinea);
+	
 	for(int i=cantPalabras(ln->valor); i>0; i--){
 		Borrar_Palabra(posicionLinea,i,l);
 	}
+
 	if(ln->sig==NULL){
 		l.ultimo=ln->ant;
+	}else{
+		(ln->sig)->ant = ln->ant;
 	}
+
 	if(ln->ant==NULL){
 		l.primero=ln->sig;
 	}else{
 		(ln->ant)->sig = ln->sig;
-		(ln->sig)->ant = ln->ant;
 	}
 	delete ln;
 }

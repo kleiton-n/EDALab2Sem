@@ -50,7 +50,7 @@ bool cadcmp(Cadena c1, Cadena c2){
 		return false;
 	}
 	
-	for (int i = 0; i < strlen(c1); i++){
+	for (unsigned int i = 0; i < strlen(c1); i++){
 		if(minuscula(c1[i]) != minuscula(c2[i])){
 			return false;
 		}	
