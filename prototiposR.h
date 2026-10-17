@@ -17,6 +17,10 @@ TipoRetorno ClearP();
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra);
 
 TipoRetorno BorrarTodo();
+	
+TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar);
+
+TipoRetorno ImprimirDiccionario();
 
 void muestroRetorno(int retorno);
 

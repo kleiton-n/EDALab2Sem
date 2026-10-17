@@ -1,5 +1,12 @@
 #include "libs.h"
 
+// PRE orgien debe de existir
+Cadena copiarCadena(Cadena origen) {	
+	Cadena copia = new char[strlen(origen) + 1]; 
+	strcpy(copia, origen);
+	return copia;
+}
+
 // LISTA DOBLE ENCADENADA
 bool esTextoVacio(cabezal l){
 	return l.primero == NULL && l.ultimo == NULL;
@@ -8,6 +15,52 @@ bool esTextoVacio(cabezal l){
 bool esLineaVacia(lista_ln ln){
 	return ln == NULL;
 }
+
+// DIX functions
+bool esDixVacio(diccionario dix){
+	return dix == NULL;
+}
+
+
+bool existePalabra(diccionario d, Cadena p){
+	if (esDixVacio(d)){
+		return false;
+	}else if (strcmp(d->palabra, p) == 0){
+		cout << d->palabra << endl;
+		return true;
+	}else if (strcmp(d->palabra, p) > 0){
+		cout << "izq" << endl;
+		return existePalabra(d->izq, p);
+	}else{
+		cout <<"der" << endl;
+		return existePalabra(d->der, p);
+	}
+}
+	
+void IngresarPalabraDix(diccionario &d, Cadena p){ // ver si es necesario la referencia de d
+	if (esDixVacio(d)){
+		d = new _diccionario;
+		d->palabra = copiarCadena(p);
+	}else{
+		if (strcmp(d->palabra, p) > 0){
+			IngresarPalabraDix(d->izq, p);
+		}else{
+			IngresarPalabraDix(d->der, p);
+		}
+	}
+}
+	
+// pre diccionario no vacio
+void imprimirInorden(diccionario d){
+	if(!esDixVacio(d)){
+		imprimirInorden(d->izq);
+		cout << d->palabra << endl;
+		imprimirInorden(d->der);
+	}
+}
+
+// DIX functions
+
 int cantLineas(lista_ln primero){
 	int cant = 0;
 	while(!esLineaVacia(primero)){
@@ -92,13 +145,6 @@ bool existePalabraPosicion(lista_p p, Posicion posicionPalabra){
 	return !esPalabraVacia(direccionPalabra(p, posicionPalabra));
 }
 
-// PRE orgien debe de existir
-Cadena copiarCadena(Cadena origen) {	
-	Cadena copia = new char[strlen(origen) + 1]; 
-	strcpy(copia, origen);
-	return copia;
-}
-
 void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar, cabezal &l){ //chequear que estemos usando todas las funciones si no borrar
 	if (!existeLinea(l.primero,posicionLinea)){ // caso base
 		Insertar_Linea(l);
@@ -167,7 +213,6 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 	}
 	
 }
-
 	
 void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 	lista_ln ln = obtenerLinea(l.primero, posicionLinea);

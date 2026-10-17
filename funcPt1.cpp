@@ -1,6 +1,7 @@
 #include "libs.h"
 
 cabezal l;
+diccionario d;
 	
 void muestroRetorno(int retorno){
 	switch (retorno){
@@ -104,6 +105,26 @@ TipoRetorno ImprimirTexto(){
 			aux = aux->sig;
 			i++;
 		}
+	}
+	return OK;
+}
+	
+//12
+TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar){
+	if(existePalabra(d, palabraAIngresar)){
+		cout << "La palabra ya eiste en el diccionario" << endl;
+		return ERRORES;
+	}
+	IngresarPalabraDix(d, palabraAIngresar);
+	return OK;
+}
+
+//14
+TipoRetorno ImprimirDiccionario(){
+	if (esDixVacio(d)){
+		cout << "Diccionario vacio" << endl;
+	}else{
+		imprimirInorden(d);
 	}
 	return OK;
 }

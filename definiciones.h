@@ -46,4 +46,10 @@ typedef struct _cabezal {
 	lista_ln ultimo = NULL;
 }cabezal;
 
+typedef struct _diccionario {
+	_diccionario *izq = NULL;
+	Cadena palabra;
+	_diccionario *der = NULL;
+}*diccionario;
+
 #endif

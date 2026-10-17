@@ -15,5 +15,9 @@ int cantPalabras(lista_p p);
 void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar, cabezal &l);
 void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l);
 void Borrar_Todo(cabezal &l);
-
+// dix prototipos
+bool esDixVacio(diccionario dix);
+bool existePalabra(diccionario d, Cadena p);
+void IngresarPalabraDix(diccionario &d, Cadena p);
+void imprimirInorden(diccionario d);
 #endif
