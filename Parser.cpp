@@ -61,7 +61,6 @@ TipoRetorno BorrarLineaParser(Parametros param){
 	return BorrarLinea(atoi(param.param1));
 }
 
-
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
@@ -71,9 +70,27 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
 	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
     {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
+	{(Cadena)"Help", HelpParser, 0}	
 };
 
-#define CANT_COMANDOS 8
+#define CANT_COMANDOS 9
+
+TipoRetorno HelpParser(Parametros param){
+	cout << "=====[COMANDOS DISPONIBLES]=====" << endl;
+	
+	for(int i = 0; i < CANT_COMANDOS; i++){
+		cout << commands[i].nombre;
+		
+		if(commands[i].cantParametros > -1){
+			cout << " - Parametros: "
+				<< commands[i].cantParametros;
+		}
+		
+		cout << endl;
+	}
+	
+	return OK;
+}
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

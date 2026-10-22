@@ -18,6 +18,8 @@ TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra);
 
 TipoRetorno BorrarTodo();
 
+TipoRetorno HelpParser(Parametros param);
+
 void muestroRetorno(int retorno);
 
 
