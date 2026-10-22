@@ -8,13 +8,13 @@
 int main (int argc, char *argv[]) {
 	char texto[MAX_LINEA_ENTRADA];
 	// debug
-	InsertarLinea();
-	InsertarLinea();
-	InsertarLinea();
-	InsertarPalabra(1,1,(Cadena)"palabra1");
-	InsertarPalabra(2,1,(Cadena)"palabra2");
-	InsertarPalabra(3,1,(Cadena)"palabra3");
-	ImprimirTexto();
+//	InsertarLinea();
+//	InsertarLinea();
+//	InsertarLinea();
+//	InsertarPalabra(1,1,(Cadena)"palabra1");
+//	InsertarPalabra(2,1,(Cadena)"palabra2");
+//	InsertarPalabra(3,1,(Cadena)"palabra3");
+//	ImprimirTexto();
 	// cout << cantLineas(l.primero) << endl;
 	// debug
 	while (true) {

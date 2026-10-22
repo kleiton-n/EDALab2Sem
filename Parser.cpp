@@ -70,12 +70,12 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
 	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
     {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
-	{(Cadena)"Help", HelpParser, 0}	
+	{(Cadena)"Ayuda", AyudaParser, 0}	
 };
 
 #define CANT_COMANDOS 9
 
-TipoRetorno HelpParser(Parametros param){
+TipoRetorno AyudaParser(Parametros param){
 	cout << "=====[COMANDOS DISPONIBLES]=====" << endl;
 	
 	for(int i = 0; i < CANT_COMANDOS; i++){
