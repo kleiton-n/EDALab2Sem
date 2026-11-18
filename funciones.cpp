@@ -22,7 +22,7 @@ bool esDixVacio(diccionario dix){
 }
 
 
-bool existePalabra(diccionario d, Cadena p){
+bool existePalabraDix(diccionario d, Cadena p){
 	if (esDixVacio(d)){
 		return false;
 	}else if (strcmp(d->palabra, p) == 0){
@@ -30,10 +30,10 @@ bool existePalabra(diccionario d, Cadena p){
 		return true;
 	}else if (strcmp(d->palabra, p) > 0){
 		cout << "izq" << endl;
-		return existePalabra(d->izq, p);
+		return existePalabraDix(d->izq, p);
 	}else{
 		cout <<"der" << endl;
-		return existePalabra(d->der, p);
+		return existePalabraDix(d->der, p);
 	}
 }
 	
@@ -56,6 +56,36 @@ void imprimirInorden(diccionario d){
 		imprimirInorden(d->izq);
 		cout << d->palabra << endl;
 		imprimirInorden(d->der);
+	}
+}
+	
+diccionario unirDix(diccionario izq, diccionario der){
+	if(esDixVacio(izq)){
+		return der;
+	}
+	if(esDixVacio(der)){
+		return izq;
+	}
+	diccionario centro = unirDix(izq->der, der->izq);
+	izq->der = centro;
+	der->izq = izq;
+	return der;
+}
+	
+void borrarPlabraDix(diccionario &d,Cadena palabraABorrar){
+	if(esDixVacio(d)){
+		return;
+	}else{
+		if(strcmp(d->palabra, palabraABorrar) > 0){
+			borrarPlabraDix(d->izq,palabraABorrar);
+		}else if(strcmp(d->palabra,palabraABorrar) < 0){
+			borrarPlabraDix(d->der,palabraABorrar);
+		}else{
+			diccionario dixABorrar = d;
+			d = unirDix(d->izq, d->der);
+//			delete dixABorrar->palabra; // preguntar a gualbi, en caso afirmativo, chequear los demas borrar
+			delete dixABorrar;
+		}
 	}
 }
 

@@ -75,6 +75,17 @@ TipoRetorno IngresarPalabraDiccionarioParser(Parametros param){
 TipoRetorno ImprimirDiccionarioParser(Parametros param){
 	return ImprimirDiccionario();
 }
+	
+TipoRetorno BorrarPalabraDiccionarioParsesr(Parametros param){
+	if (!esTexto(param.param1)){
+		cout << "el parametro para BorrarPalabraDiccionario debe de ser texto e ingreso: " << param.param1 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param1 = strtok(param.param1, "\"");
+	//	param.param1 = minusculas(param.param1); preguntar al gualbi si agregar esto Palabra es igual a palabra ?
+	return BorrarPalabraDiccionario(param.param1);
+}
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
@@ -86,10 +97,11 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
     {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
 	{(Cadena)"IngresarPalabraDiccionario", IngresarPalabraDiccionarioParser, 1},
-	{(Cadena)"ImprimirDiccionario", ImprimirDiccionarioParser, 0}
+	{(Cadena)"ImprimirDiccionario", ImprimirDiccionarioParser, 0},
+	{(Cadena)"BorrarPalabraDiccionario", BorrarPalabraDiccionarioParsesr, 1}
 };
 
-#define CANT_COMANDOS 10
+#define CANT_COMANDOS 11
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

@@ -22,6 +22,8 @@ TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar);
 
 TipoRetorno ImprimirDiccionario();
 
+TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar);
+
 void muestroRetorno(int retorno);
 
 

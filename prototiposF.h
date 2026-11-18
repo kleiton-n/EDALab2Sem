@@ -17,7 +17,8 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 void Borrar_Todo(cabezal &l);
 // dix prototipos
 bool esDixVacio(diccionario dix);
-bool existePalabra(diccionario d, Cadena p);
+bool existePalabraDix(diccionario d, Cadena p);
 void IngresarPalabraDix(diccionario &d, Cadena p);
 void imprimirInorden(diccionario d);
+void borrarPlabraDix(diccionario &d,Cadena palabraABorrar);
 #endif

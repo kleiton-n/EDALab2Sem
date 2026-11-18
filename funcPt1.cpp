@@ -111,11 +111,21 @@ TipoRetorno ImprimirTexto(){
 	
 //12
 TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar){
-	if(existePalabra(d, palabraAIngresar)){
-		cout << "La palabra ya eiste en el diccionario" << endl;
+	if(existePalabraDix(d, palabraAIngresar)){
+		cout << "La palabra ya existe en el diccionario" << endl;
 		return ERRORES;
 	}
 	IngresarPalabraDix(d, palabraAIngresar);
+	return OK;
+}
+
+//13
+TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar){
+	if(!existePalabraDix(d,palabraABorrar)){
+		cout << "La palabra no existe en el diccionario" << endl;
+		return ERRORES;
+	}
+	borrarPlabraDix(d,palabraABorrar);
 	return OK;
 }
 
@@ -128,6 +138,7 @@ TipoRetorno ImprimirDiccionario(){
 	}
 	return OK;
 }
+
 
 //opt1
 TipoRetorno ClearP(){
