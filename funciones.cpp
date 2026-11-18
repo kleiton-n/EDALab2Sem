@@ -83,7 +83,6 @@ void borrarPlabraDix(diccionario &d,Cadena palabraABorrar){
 		}else{
 			diccionario dixABorrar = d;
 			d = unirDix(d->izq, d->der);
-//			delete dixABorrar->palabra; // preguntar a gualbi, en caso afirmativo, chequear los demas borrar
 			delete dixABorrar;
 		}
 	}

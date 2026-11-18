@@ -24,6 +24,8 @@ TipoRetorno ImprimirDiccionario();
 
 TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar);
 
+TipoRetorno ImprimirLinea(Posicion posicionLinea);
+
 void muestroRetorno(int retorno);
 
 

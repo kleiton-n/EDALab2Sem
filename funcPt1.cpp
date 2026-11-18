@@ -139,6 +139,24 @@ TipoRetorno ImprimirDiccionario(){
 	return OK;
 }
 
+//11
+TipoRetorno ImprimirLinea(Posicion posicionLinea){
+	if(esTextoVacio(l)){
+		cout << "Actualmente no existen lineas en el documento" << endl;
+		return ERRORES;
+	}else if(esLineaVacia(obtenerLinea(l.primero,posicionLinea))){
+		cout << "la linea numero: " << posicionLinea << " no existe" << endl;
+		return ERRORES;
+	}else if(posicionLinea <= 0){
+		cout << "el posicion de linea debe de ser mayor a 0" << endl;
+		return ERRORES;
+	}
+	cout << posicionLinea << ": ";
+	mostrarTexto(obtenerLinea(l.primero,posicionLinea)->valor);
+	cout << endl;
+	return OK;
+}
+
 
 //opt1
 TipoRetorno ClearP(){

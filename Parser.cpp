@@ -86,10 +86,19 @@ TipoRetorno BorrarPalabraDiccionarioParsesr(Parametros param){
 	//	param.param1 = minusculas(param.param1); preguntar al gualbi si agregar esto Palabra es igual a palabra ?
 	return BorrarPalabraDiccionario(param.param1);
 }
+	
+TipoRetorno ImprimirLineaParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el parametro para ImprimirLinea debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}
+	return ImprimirLinea(atoi(param.param1));
+}
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
+	{(Cadena)"ImprimirLinea", ImprimirLineaParser, 1},
 	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
 	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1},
 	{(Cadena)"Clear", Clear_Parser, 0},
@@ -101,7 +110,7 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
 	{(Cadena)"BorrarPalabraDiccionario", BorrarPalabraDiccionarioParsesr, 1}
 };
 
-#define CANT_COMANDOS 11
+#define CANT_COMANDOS 12
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	
