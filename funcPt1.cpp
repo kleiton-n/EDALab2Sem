@@ -61,7 +61,11 @@ TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
 		aux->valor = NULL;
 		aux->ant = ln->ant;
 		aux->sig = ln;
-		ln->ant->sig = aux;
+		if(esLineaVacia(ln->ant)){
+			l.primero = aux;
+		}else{
+			ln->ant->sig = aux;	
+		}
 		ln->ant = aux;
 	}
 	return OK;
