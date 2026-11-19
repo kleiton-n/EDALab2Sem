@@ -28,6 +28,14 @@ TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
 TipoRetorno BorrarPalabraParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para BorrarPalabra debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}	
+	if (!esNumero(param.param2)){
+		cout << "el segundo parametro para BorrarPalabra debe de ser numerico e ingreso: " << param.param2 << endl;
+		return ERRORES;
+	}
 	return BorrarPalabra(atoi(param.param1),atoi(param.param2));
 }
 TipoRetorno BorrarTodoParser(Parametros param){

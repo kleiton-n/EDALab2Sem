@@ -220,7 +220,8 @@ void Insertar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena p
 		Insertar_Palabra(posicionLinea+1, 1, palabraSig, l);
 	}
 }
-
+	
+// pre la palabra y la linea debe de existir
 void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l){
 	lista_p p = obtenerPalabras(l.primero, posicionLinea);
 	if(posicionPalabra == 1) {
@@ -240,7 +241,6 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 		aux->sig = p->sig;
 		delete p;
 	}
-	
 }
 	
 void Borrar_Linea(cabezal &l, Posicion posicionLinea){

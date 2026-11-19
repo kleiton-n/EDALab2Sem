@@ -156,11 +156,10 @@ TipoRetorno ImprimirLinea(Posicion posicionLinea){
 		return ERRORES;
 	}
 	cout << posicionLinea << ": ";
-	mostrarTexto(obtenerLinea(l.primero,posicionLinea)->valor);
+	mostrarTexto(obtenerPalabras(l.primero,posicionLinea));
 	cout << endl;
 	return OK;
 }
-
 
 //opt1
 TipoRetorno ClearP(){
@@ -169,6 +168,16 @@ TipoRetorno ClearP(){
 }
 
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra){
+	if(esTextoVacio(l)){
+		cout << "Actualmente no existen lineas en el documento" << endl;
+		return ERRORES;
+	}else if (esLineaVacia(obtenerLinea(l.primero, posicionLinea))){
+		cout << "la linea numero: " << posicionLinea << " no existe" << endl;
+		return ERRORES;
+	}else if ((unsigned)cantPalabras(obtenerPalabras(l.primero,posicionLinea)) < posicionPalabra){
+		cout << "la palabra numero: " << posicionPalabra << " en la linea " << posicionLinea << " no existe." << endl;
+		return ERRORES;
+	}
 	Borrar_Palabra(posicionLinea, posicionPalabra, l);
 	return OK;
 }
