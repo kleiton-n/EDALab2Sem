@@ -160,6 +160,11 @@ TipoRetorno ImprimirLinea(Posicion posicionLinea){
 	cout << endl;
 	return OK;
 }
+	
+TipoRetorno ComprimirTexto(){
+	ComprimirTexto(l);
+	return OK;
+}
 
 //opt1
 TipoRetorno ClearP(){

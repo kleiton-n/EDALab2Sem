@@ -243,6 +243,73 @@ void Borrar_Palabra(Posicion posicionLinea, Posicion posicionPalabra, cabezal &l
 	}
 }
 	
+void ComprimirTexto(cabezal &l){
+	lista_ln ln = l.primero;
+	
+	while (!esLineaVacia(ln)) {
+		int cantidad = 0;
+		lista_p ultima = NULL;
+		
+		lista_p p = ln->valor;
+		cantidad = cantPalabras(p);
+		
+		while(!esPalabraVacia(p)) {
+			ultima = p;
+			p = p->sig;
+		}
+		
+		// Completar la línea con palabras de las siguientes.
+		while (cantidad < MAX_CANT_PALABRAS_X_LINEA && ln->sig != NULL) {
+			
+			lista_ln siguiente = ln->sig;
+			
+			if (!esPalabraVacia(siguiente->valor)) {
+				lista_p palabra = siguiente->valor;
+				siguiente->valor = palabra->sig;
+				palabra->sig = NULL;
+				if (ultima == NULL) {
+					ln->valor = palabra;
+				}else{
+					ultima->sig = palabra;
+				}
+				ultima = palabra;
+				cantidad++;
+			}
+			
+			if (siguiente->valor == NULL) {
+				ln->sig = siguiente->sig;
+				if (ln->sig != NULL) {
+					ln->sig->ant = ln;
+				}else{
+					l.ultimo = ln;
+				}
+				delete siguiente;
+			}
+		}
+		
+		if (ln->valor == NULL) {
+			lista_ln vacia = ln;
+			ln = ln->sig;
+			
+			if (vacia->ant != NULL) {
+				vacia->ant->sig = ln;
+			} else {
+				l.primero = ln;
+			}
+			
+			if (ln != NULL) {
+				ln->ant = vacia->ant;
+			} else {
+				l.ultimo = vacia->ant;
+			}
+			
+			delete vacia;
+		} else {
+			ln = ln->sig;
+		}
+	}
+}
+	
 void Borrar_Linea(cabezal &l, Posicion posicionLinea){
 	lista_ln ln = obtenerLinea(l.primero, posicionLinea);
 	

@@ -102,6 +102,10 @@ TipoRetorno ImprimirLineaParser(Parametros param){
 	}
 	return ImprimirLinea(atoi(param.param1));
 }
+	
+TipoRetorno ComprimirTextoParser(Parametros param){
+	return ComprimirTexto();
+}
 
 command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
@@ -115,10 +119,11 @@ command commands[] = { // posibilidad de convertir en lista para obtener el tama
     {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
 	{(Cadena)"IngresarPalabraDiccionario", IngresarPalabraDiccionarioParser, 1},
 	{(Cadena)"ImprimirDiccionario", ImprimirDiccionarioParser, 0},
-	{(Cadena)"BorrarPalabraDiccionario", BorrarPalabraDiccionarioParsesr, 1}
+	{(Cadena)"BorrarPalabraDiccionario", BorrarPalabraDiccionarioParsesr, 1},
+	{(Cadena)"ComprimirTexto", ComprimirTextoParser, 0}
 };
 
-#define CANT_COMANDOS 12
+#define CANT_COMANDOS 13
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

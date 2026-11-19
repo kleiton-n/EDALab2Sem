@@ -21,4 +21,5 @@ bool existePalabraDix(diccionario d, Cadena p);
 void IngresarPalabraDix(diccionario &d, Cadena p);
 void imprimirInorden(diccionario d);
 void borrarPlabraDix(diccionario &d,Cadena palabraABorrar);
+void ComprimirTexto(cabezal &l);
 #endif

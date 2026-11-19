@@ -26,6 +26,8 @@ TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar);
 
 TipoRetorno ImprimirLinea(Posicion posicionLinea);
 
+TipoRetorno ComprimirTexto();
+
 void muestroRetorno(int retorno);
 
 

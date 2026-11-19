@@ -11,9 +11,14 @@ int main (int argc, char *argv[]) {
 	InsertarLinea();
 	InsertarLinea();
 	InsertarLinea();
+	InsertarLinea();
+	InsertarLinea();
+	InsertarLinea();
+	InsertarLinea();
 	InsertarPalabra(1,1,(Cadena)"palabra1");
-	InsertarPalabra(2,1,(Cadena)"palabra2");
-	InsertarPalabra(3,1,(Cadena)"palabra3");
+	InsertarPalabra(3,1,(Cadena)"palabra2");
+	InsertarPalabra(4,1,(Cadena)"palabra3");
+	InsertarPalabra(6,1,(Cadena)"palabra3");
 	ImprimirTexto();
 	// debug
 	while (true) {
