@@ -16,13 +16,12 @@ void muestroRetorno(int retorno){
 		break;
 	}
 }
-//1
+
 TipoRetorno InsertarLinea(){
 	Insertar_Linea(l);
 	return OK;
 }
 
-//8
 TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar){
 	if(esTextoVacio(l)){
 		cout << "Actualmente no existen lineas en el documento" << endl;
@@ -44,7 +43,6 @@ TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Ca
 	return OK;
 }
 
-//2
 TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
 	if (posicionLinea < 1){
 		cout << "la posicion de la linea debe de ser un numero positivo" << endl;
@@ -71,7 +69,6 @@ TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea){
 	return OK;
 }
 
-//3
 TipoRetorno BorrarLinea(Posicion posicionLinea){
 	if(esTextoVacio(l)){
 		cout << "Actualmente no existen lineas en el documento" << endl;
@@ -84,7 +81,6 @@ TipoRetorno BorrarLinea(Posicion posicionLinea){
 	return OK;
 }
 
-//4
 TipoRetorno BorrarTodo(){
 	if(esTextoVacio(l)){
 		cout << "Actualmente no existen lineas en el documento" << endl;
@@ -94,7 +90,6 @@ TipoRetorno BorrarTodo(){
 	return OK;
 }
 
-//6
 TipoRetorno ImprimirTexto(){
 	if(esTextoVacio(l)){
 		cout << "Actualmente no existen lineas en el documento" << endl;
@@ -112,8 +107,7 @@ TipoRetorno ImprimirTexto(){
 	}
 	return OK;
 }
-	
-//12
+
 TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar){
 	if(existePalabraDix(d, palabraAIngresar)){
 		cout << "La palabra ya existe en el diccionario" << endl;
@@ -123,7 +117,6 @@ TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar){
 	return OK;
 }
 
-//13
 TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar){
 	if(!existePalabraDix(d,palabraABorrar)){
 		cout << "La palabra no existe en el diccionario" << endl;
@@ -133,7 +126,6 @@ TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar){
 	return OK;
 }
 
-//14
 TipoRetorno ImprimirDiccionario(){
 	if (esDixVacio(d)){
 		cout << "Diccionario vacio" << endl;
@@ -143,7 +135,6 @@ TipoRetorno ImprimirDiccionario(){
 	return OK;
 }
 
-//11
 TipoRetorno ImprimirLinea(Posicion posicionLinea){
 	if(esTextoVacio(l)){
 		cout << "Actualmente no existen lineas en el documento" << endl;
@@ -165,8 +156,22 @@ TipoRetorno ComprimirTexto(){
 	ComprimirTexto(l);
 	return OK;
 }
+	
+TipoRetorno ImprimirTextoIncorrecto(){
+	Imprimir_Texto_Incorrecto(l,d);
+	return OK;
+}
 
-//opt1
+TipoRetorno BorrarOcurrenciasPalabraEnTexto(Cadena palabraABorrar){
+	BorrarOcurrenciaPalabra(l,palabraABorrar);
+	return OK;
+}
+	
+TipoRetorno BorrarOcurrenciasPalabraEnLinea(Posicion posicionLinea, Cadena palabraABorrar){
+	BorrarocurrenciaPalabraLN(l,posicionLinea,palabraABorrar);
+	return OK;
+}
+
 TipoRetorno ClearP(){
 	clear();
 	return OK;

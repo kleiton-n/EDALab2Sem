@@ -22,4 +22,7 @@ void IngresarPalabraDix(diccionario &d, Cadena p);
 void imprimirInorden(diccionario d);
 void borrarPlabraDix(diccionario &d,Cadena palabraABorrar);
 void ComprimirTexto(cabezal &l);
+void Imprimir_Texto_Incorrecto(cabezal &l, diccionario d);
+void BorrarOcurrenciaPalabra(cabezal l, Cadena palabraABorrar);
+void BorrarocurrenciaPalabraLN(cabezal l, Posicion posicionLinea, Cadena palabraABorrar);
 #endif
