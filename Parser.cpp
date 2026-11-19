@@ -4,7 +4,7 @@ bool esTexto(Cadena c){
 	return c[0] == '"';
 }
 	
-bool esNumero(Cadena c) { // pasarlo a tools
+bool esNumero(Cadena c) {
 	if (c == NULL || *c == '\0') return false;
 	for (int i = 0; c[i] != '\0'; i++) {
 		if (c[i] < '0' || c[i] > '9') return false;
@@ -28,18 +28,25 @@ TipoRetorno InsertarLineaParser(Parametros param){
 	return InsertarLinea();
 }
 TipoRetorno BorrarPalabraParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para BorrarPalabra debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}	
+	if (!esNumero(param.param2)){
+		cout << "el segundo parametro para BorrarPalabra debe de ser numerico e ingreso: " << param.param2 << endl;
+		return ERRORES;
+	}
 	return BorrarPalabra(atoi(param.param1),atoi(param.param2));
 }
 TipoRetorno BorrarTodoParser(Parametros param){
 	return BorrarTodo();
 }
 	
-	
 TipoRetorno ImprimirTextoParser(Parametros param){
 	return ImprimirTexto();
 }
 
-TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por parametros si tiene leak de memoria
+TipoRetorno InsertarPalabraParser(Parametros param){ 
 	if (!esNumero(param.param1)){
 		cout << "el primer parametro para InsertarPalabra debe de ser numerico e ingreso: " << param.param1 << endl;
 		return ERRORES;
@@ -53,27 +60,98 @@ TipoRetorno InsertarPalabraParser(Parametros param){ // preguntar al profe por p
 		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
 		return ERRORES;
 	}
-	param.param3 = strtok(param.param3, "\""); // capas que es necesario usar separador para espacio, preguntar a gualbi "palabra 1" que deberia de pasar ignoro 1
+	param.param3 = strtok(param.param3, "\""); 
 	return InsertarPalabra(atoi(param.param1), atoi(param.param2), param.param3);
 }
 
 TipoRetorno BorrarLineaParser(Parametros param){
 	return BorrarLinea(atoi(param.param1));
 }
+	
+TipoRetorno IngresarPalabraDiccionarioParser(Parametros param){
+	if (!esTexto(param.param1)){
+		cout << "el parametro para IngresarPalabraDiccionario debe de ser texto e ingreso: " << param.param1 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param1 = strtok(param.param1, "\"");
+	return IngresarPalabraDiccionario(param.param1);
+}
+	
+TipoRetorno ImprimirDiccionarioParser(Parametros param){
+	return ImprimirDiccionario();
+}
+	
+TipoRetorno ImprimirTextoIncorrectoParser(Parametros param){
+	return ImprimirTextoIncorrecto();
+}
+	
+TipoRetorno BorrarOcurrenciaPalabraEnTextoParser(Parametros param){
+	if (!esTexto(param.param1)){
+		cout << "el parametro para BorrarOcurrenciaPalabraEnTexto debe de ser texto e ingreso: " << param.param1 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param1 = strtok(param.param1, "\"");
+	return BorrarOcurrenciasPalabraEnTexto(param.param1);
+}
 
+TipoRetorno BorrarOcurrenciaPalabraEnLineaParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el primer parametro para BorrarOcurrenciasPalabraEnLinea debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}	
+	if (!esTexto(param.param2)){
+		cout << "el parametro para BorrarOcurrenciasPalabraEnLinea debe de ser texto e ingreso: " << param.param1 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param2 = strtok(param.param2, "\"");
+	return BorrarOcurrenciasPalabraEnLinea(atoi(param.param1),param.param2);
+}
+	
+TipoRetorno BorrarPalabraDiccionarioParsesr(Parametros param){
+	if (!esTexto(param.param1)){
+		cout << "el parametro para BorrarPalabraDiccionario debe de ser texto e ingreso: " << param.param1 << endl;
+		cout << "los parametros de tipo texto deben de ser ingresado entre \"\"" << endl;
+		return ERRORES;
+	}
+	param.param1 = strtok(param.param1, "\"");
+	return BorrarPalabraDiccionario(param.param1);
+}
+	
+TipoRetorno ImprimirLineaParser(Parametros param){
+	if (!esNumero(param.param1)){
+		cout << "el parametro para ImprimirLinea debe de ser numerico e ingreso: " << param.param1 << endl;
+		return ERRORES;
+	}
+	return ImprimirLinea(atoi(param.param1));
+}
+	
+TipoRetorno ComprimirTextoParser(Parametros param){
+	return ComprimirTexto();
+}
 
-command commands[] = { // posibilidad de convertir en lista para obtener el tamanio
+command commands[] = {
 	{(Cadena)"InsertarLinea", InsertarLineaParser, 0},
 	{(Cadena)"ImprimirTexto", ImprimirTextoParser, 0},
+	{(Cadena)"ImprimirLinea", ImprimirLineaParser, 1},
 	{(Cadena)"InsertarPalabra", InsertarPalabraParser, 3},
 	{(Cadena)"InsertarLineaEnPosicion", InsertarLineaEnPosicioParser, 1},
 	{(Cadena)"Clear", Clear_Parser, 0},
 	{(Cadena)"BorrarPalabra", BorrarPalabraParser, 2},
 	{(Cadena)"BorrarLinea", BorrarLineaParser, 1},
     {(Cadena)"BorrarTodo", BorrarTodoParser, 0},
+	{(Cadena)"IngresarPalabraDiccionario", IngresarPalabraDiccionarioParser, 1},
+	{(Cadena)"ImprimirDiccionario", ImprimirDiccionarioParser, 0},
+	{(Cadena)"BorrarPalabraDiccionario", BorrarPalabraDiccionarioParsesr, 1},
+	{(Cadena)"ComprimirTexto", ComprimirTextoParser, 0},
+	{(Cadena)"ImprimirTextoIncorrecto", ImprimirTextoIncorrectoParser, 0},
+	{(Cadena)"BorrarOcurrenciasPalabraEnTexto", BorrarOcurrenciaPalabraEnTextoParser, 1},
+	{(Cadena)"BorrarOcurrenciasPalabraEnLinea", BorrarOcurrenciaPalabraEnLineaParser, 1}
 };
 
-#define CANT_COMANDOS 8
+#define CANT_COMANDOS 16
 
 TipoRetorno parser(Cadena lineaEntrada) {
 	

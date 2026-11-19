@@ -8,7 +8,6 @@ TipoRetorno InsertarLineaEnPosicion(Posicion posicionLinea);
 TipoRetorno InsertarPalabra(Posicion posicionLinea, Posicion posicionPalabra, Cadena palabraAIngresar);
 
 TipoRetorno BorrarLinea(Posicion posicionLinea);
-
 	
 TipoRetorno ImprimirTexto();
 
@@ -17,6 +16,22 @@ TipoRetorno ClearP();
 TipoRetorno BorrarPalabra(Posicion posicionLinea, Posicion posicionPalabra);
 
 TipoRetorno BorrarTodo();
+	
+TipoRetorno	IngresarPalabraDiccionario(Cadena palabraAIngresar);
+
+TipoRetorno ImprimirDiccionario();
+
+TipoRetorno BorrarPalabraDiccionario(Cadena palabraABorrar);
+
+TipoRetorno ImprimirLinea(Posicion posicionLinea);
+
+TipoRetorno ComprimirTexto();
+
+TipoRetorno ImprimirTextoIncorrecto();
+
+TipoRetorno BorrarOcurrenciasPalabraEnTexto(Cadena palabraABorrar);
+
+TipoRetorno BorrarOcurrenciasPalabraEnLinea(Posicion posicionLinea, Cadena palabraABorrar);
 
 void muestroRetorno(int retorno);
 

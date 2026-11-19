@@ -57,6 +57,19 @@ bool cadcmp(Cadena c1, Cadena c2){
 	}
 	return true;
 }
+	
+Cadena minusculas(Cadena cad){
+	if (cad == NULL){
+		return NULL;
+	}
+	int len = strlen(cad);
+	Cadena ncad = new char[len+1];
+	for(int i = 0; i < len; i++){
+		ncad[i] = minuscula(cad[i]);
+	}
+	ncad[len] = '\0';
+	return ncad;
+}
 
 void clear(){
 	#ifdef _WIN32

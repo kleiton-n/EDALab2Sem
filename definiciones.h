@@ -7,13 +7,15 @@
 enum _retorno{
 	OK, ERRORES, NO_IMPLEMENTADA
 };
+
 typedef enum _retorno TipoRetorno;
 
 typedef char *Cadena;
 
 typedef unsigned int Posicion;
 
-// COMMANDS
+// vvv COMMANDS vvv
+
 typedef struct param {
 	Cadena param1 = NULL;
 	Cadena param2 = NULL;
@@ -28,7 +30,7 @@ typedef struct _command{
 	int cantParametros;
 }command;
 
-// COMMANDS
+// ^^^ COMMANDS ^^^
 
 typedef struct nodop{
 	Cadena valor = new char[15];
@@ -45,5 +47,11 @@ typedef struct _cabezal {
 	lista_ln primero = NULL;
 	lista_ln ultimo = NULL;
 }cabezal;
+
+typedef struct _diccionario {
+	_diccionario *izq = NULL;
+	Cadena palabra;
+	_diccionario *der = NULL;
+}*diccionario;
 
 #endif
